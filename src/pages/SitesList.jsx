@@ -4,7 +4,6 @@ import { useFetchAllSites } from "../hooks/useFetchAllSites";
 
 export const SitesList = () => {
   const { data, loading, error } = useFetchAllSites();
-  console.log(error);
   return (
     <div>
       SitesList
