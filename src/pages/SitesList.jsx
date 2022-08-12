@@ -1,7 +1,9 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 export const SitesList = () => {
   return (
-    <div>SitesList</div>
+    <div>SitesList
+    <Link to="/create">Create</Link>
+    </div>
   )
 }

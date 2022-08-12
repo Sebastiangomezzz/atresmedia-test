@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Edit = () => {
+export const SiteEdit = () => {
   return (
-    <div>Edit</div>
+    <div>SiteEdit</div>
   )
 }
