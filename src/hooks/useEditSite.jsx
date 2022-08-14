@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export const useCreateSite = (data) => {
+export const useEditSite = (data) => {
   const [submitLoading, setSubmitLoading] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const hookHandleSubmit = async (data) => {
+  const hookHandleEditSubmit = async (data, id) => {
     setSubmitLoading(true);
     setSubmitError(null);
     setSubmitSuccess(false);
@@ -13,9 +13,9 @@ export const useCreateSite = (data) => {
     const stringData = JSON.stringify(_data);
     try {
       const res = await fetch(
-        "https://interview.staging.atresplayer.com/site",
+        `https://interview.staging.atresplayer.com/site/${id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             accept: "application.json",
             "Content-Type": "application/json",
@@ -37,5 +37,5 @@ export const useCreateSite = (data) => {
       setSubmitLoading(false);
     }
   };
-  return { hookHandleSubmit, submitLoading, submitError, submitSuccess };
+  return { hookHandleEditSubmit, submitLoading, submitError, submitSuccess };
 };

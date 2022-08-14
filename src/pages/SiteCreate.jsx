@@ -5,9 +5,9 @@ import { useCreateSite } from "../hooks/useCreateSite";
 export const SiteCreate = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { hookHandleSubmit, submitLoading, submitError, submitSuccess } = useCreateSite();
-  console.log(submitError, submitSuccess, submitLoading);
   const onSubmit = (data) => {
     hookHandleSubmit(data);
+    reset();
   }
   return (
     <>
