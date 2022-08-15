@@ -1,10 +1,14 @@
 import React from "react";
-import style from "./Button.module.css";
-
-export const Button = ({ text, onClick, type }) => {
+import style from "./ButtonWithLink.module.css";
+import { Link } from "react-router-dom";
+export const ButtonWithLink = ({ text, linkTo, onClick }) => {
   return (
     <button className={style.button} onClick={onClick}>
-      {text}
+      <Link
+        to={linkTo}
+      >
+        {text}
+      </Link>
     </button>
   );
 };

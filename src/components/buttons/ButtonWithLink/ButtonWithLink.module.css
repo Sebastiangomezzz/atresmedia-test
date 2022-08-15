@@ -1,0 +1,17 @@
+.button{
+    background-color: red;
+    border: none;
+    padding: 1.5rem 3.2rem;
+    margin: 0.4rem 0.2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+}

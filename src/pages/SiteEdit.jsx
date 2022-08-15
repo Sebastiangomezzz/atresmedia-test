@@ -3,6 +3,8 @@ import { useFetchOneSite } from "../hooks/useFetchOneSite";
 import { useParams, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEditSite } from "../hooks/useEditSite";
+import { ButtonWithLink } from "../components/buttons/ButtonWithLink/ButtonWithLink";
+import { Button } from "../components/buttons/Button";
 
 export const SiteEdit = () => {
   const { siteId } = useParams();
@@ -14,27 +16,28 @@ export const SiteEdit = () => {
     formState: { errors },
   } = useForm();
   const [editedData, setEditedData] = useState(siteData);
-  const { hookHandleEditSubmit, submitLoading, submitError, submitSuccess } = useEditSite();
+  const { hookHandleEditSubmit, submitLoading, submitError, submitSuccess } =
+    useEditSite();
 
   const onSubmit = (data) => {
-    if (data.name === '') {
+    if (data.name === "") {
       data.name = siteData.name;
     }
-    if (data.path === '') {
+    if (data.path === "") {
       data.path = siteData.path;
     }
-    if (data.publicPath === '') {
+    if (data.publicPath === "") {
       data.publicPath = siteData.publicPath;
     }
-    if (data.key === '') {
+    if (data.key === "") {
       data.key = siteData.key;
     }
-    if (data.description === '') {
+    if (data.description === "") {
       data.description = siteData.description;
     }
     hookHandleEditSubmit(data, siteId);
   };
-  
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -46,11 +49,13 @@ export const SiteEdit = () => {
           defaultValue={siteData.description}
           {...register("description")}
         />
-        <input type="submit" />
+        <Button text="Confirmar Cambios" onClick={() => {}} type="submit" />
       </form>
-      <button>
-        <Link to={`/detail/${siteId}`}>Cancelar</Link>
-      </button>
+      <ButtonWithLink
+        text="Cancelar"
+        linkTo={`/detail/${siteId}`}
+        onClick={() => {}}
+      />
     </>
   );
 };
