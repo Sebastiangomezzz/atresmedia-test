@@ -3,7 +3,6 @@ import { useFetchOneSite } from "../hooks/useFetchOneSite";
 import { useParams, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEditSite } from "../hooks/useEditSite";
-import compareObjects from "../utils/compareObjects";
 
 export const SiteEdit = () => {
   const { siteId } = useParams();
@@ -15,8 +14,7 @@ export const SiteEdit = () => {
     formState: { errors },
   } = useForm();
   const [editedData, setEditedData] = useState(siteData);
-  const { hookHandleEditSubmit, submitLoading, submitError, submitSuccess } =
-    useEditSite();
+  const { hookHandleEditSubmit, submitLoading, submitError, submitSuccess } = useEditSite();
 
   const onSubmit = (data) => {
     if (data.name === '') {
