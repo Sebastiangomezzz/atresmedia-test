@@ -3,6 +3,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     margin: 0px;
     padding: 0px;
     border: none;
+    color: white;
     background-color: black;
     font-size: 10px;
 }
@@ -10,4 +11,13 @@ a{
     text-decoration: none;
     color: white;
     background-color: transparent;
+}
+h1{
+    font-size: 3rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.5rem;
 }

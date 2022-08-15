@@ -6,7 +6,10 @@ export const SitesList = () => {
   const { data, loading, error } = useFetchAllSites();
   return (
     <div>
+      <h1>
+
       SitesList
+      </h1>
       <Link to="/create">Create</Link>
       {loading ? (
         <div>Loading...</div>
