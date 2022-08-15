@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useFetchOneSite } from "../hooks/useFetchOneSite";
 import { useDeleteSite } from "../hooks/useDeleteSite";
 import { Navigate } from "react-router-dom";
+import { Button } from '../components/buttons/Button';
 export const SiteDetail = () => {
   const { siteId } = useParams();
   const { data, loading, error } = useFetchOneSite(siteId);
@@ -19,13 +20,12 @@ export const SiteDetail = () => {
       <button>
         <Link to={`/edit/${siteId}`}>Editar Site</Link>
       </button>
-      <button
+      <Button
+        text="Eliminar Site"
         onClick={() => {
           handleDelete(siteId);
         }}
-      >
-        Borrar Site
-      </button>
+      />
       {navigateToEdit && <Navigate to={`/edit/${siteId}`} />}
       {successDelete && <Navigate to="/" />}
     </div>

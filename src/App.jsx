@@ -4,10 +4,11 @@ import { SiteDetail } from "./pages/SiteDetail";
 import { SitesList } from "./pages/SitesList";
 import { SiteCreate } from "./pages/SiteCreate";
 import { SiteEdit } from "./pages/SiteEdit";
+import styles from "./App.module.css";
 
 export const App = () => {
   return (
-    <div className="App">
+    <div style={styles}>
       <Router>
         <Routes>
           <Route path="/" element={<SitesList />} />
