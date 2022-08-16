@@ -3,11 +3,9 @@ import style from './NavBar.module.css';
 
 export const NavBar = ({children}) => {
   return (
-      <div className={style.container}>
-          <div className={style.content}>
-              
+      <div className={style.container}>           
           {children}
-          </div>
+          
       </div>
   )
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SiteDetail } from "./pages/SiteDetail";
-import { SitesList } from "./pages/SitesList";
-import { SiteCreate } from "./pages/SiteCreate";
-import { SiteEdit } from "./pages/SiteEdit";
+import { SiteDetail } from "./pages/SiteDetail/SiteDetail";
+import { SitesList } from "./pages/SitesList/SitesList";
+import { SiteCreate } from "./pages/SiteCreate/SiteCreate";
+import { SiteEdit } from "./pages/SiteEdit/SiteEdit";
 import styles from "./App.module.css";
 import { DefaultLayout } from "./components/layouts/DefaultLayout";
 

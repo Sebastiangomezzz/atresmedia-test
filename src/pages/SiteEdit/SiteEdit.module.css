@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.formInput{
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 3px solid #512930;
+    padding: 1rem 0.5rem ;
+    margin-bottom: 1rem;
+    font: 2rem sans-serif;
+}
+.formLastInput{
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 3px solid #512930;
+    padding: 1rem 0.5rem;
+    margin-bottom: 3rem;
+    font: 2rem sans-serif;
+}
+.formLabel{
+    font: 2rem sans-serif;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}

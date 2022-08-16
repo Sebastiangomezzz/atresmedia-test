@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavBar } from "../components/NavBar/NavBar";
-import { useFetchAllSites } from "../hooks/useFetchAllSites";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { useFetchAllSites } from "../../hooks/useFetchAllSites";
 //import backgroundImage2 from "../assets/images/backgroundImage2.jpg";
 export const SitesList = () => {
   const { data, loading, error } = useFetchAllSites();
