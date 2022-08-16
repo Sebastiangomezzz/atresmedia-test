@@ -34,7 +34,7 @@ export const DefaultLayout = ({ children }) => {
         )}
         {currentlocation && currentlocation.includes("/detail") && (
           <>
-            <h1>Detalle de {data.name}</h1>
+            <h1 style={{marginRight:'5rem'}}>Detalles de</h1>
             <Link to="/">Volver a inicio</Link>
           </>
         )}
