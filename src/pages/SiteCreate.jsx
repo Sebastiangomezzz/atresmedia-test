@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useCreateSite } from "../hooks/useCreateSite";
-
+import { Button } from "../components/buttons/Button";
 export const SiteCreate = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { hookHandleSubmit, submitLoading, submitError, submitSuccess } = useCreateSite();
@@ -17,13 +17,19 @@ export const SiteCreate = () => {
         {errors.name && <span>This field is required</span>}
         <input placeholder="Path" {...register("path", { required: true })} />
         {errors.path && <span>This field is required</span>}
-        <input placeholder="Path público"{...register("publicPath", { required: true })} />
+        <input
+          placeholder="Path público"
+          {...register("publicPath", { required: true })}
+        />
         {errors.publicPath && <span>This field is required</span>}
         <input placeholder="Key" {...register("key", { required: true })} />
         {errors.key && <span>This field is required</span>}
-        <input placeholder="Descripción" {...register("description", { required: true })} />
+        <input
+          placeholder="Descripción"
+          {...register("description", { required: true })}
+        />
         {errors.description && <span>This field is required</span>}
-        <input type="submit" />
+        <Button text="Confirmar Cambios" onClick={() => {}} type="submit" />
       </form>
       {submitSuccess && <div>Success</div>}
       {submitError && <div>{submitError}</div>}

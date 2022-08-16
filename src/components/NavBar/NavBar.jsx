@@ -1,8 +1,13 @@
 import React from 'react'
 import style from './NavBar.module.css';
 
-export const NavBar = () => {
+export const NavBar = ({children}) => {
   return (
-    <div className={style.container}>NavBar</div>
+      <div className={style.container}>
+          <div className={style.content}>
+              
+          {children}
+          </div>
+      </div>
   )
 }
