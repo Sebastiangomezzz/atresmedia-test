@@ -24,7 +24,7 @@ export const useCreateSite = (data) => {
         }
       );
       const data = await res.json();
-      if (data.success) {
+      if (data) {
         setSubmitSuccess(true);
         setSubmitLoading(false);
       } else {
@@ -37,5 +37,5 @@ export const useCreateSite = (data) => {
       setSubmitLoading(false);
     }
   };
-  return { hookHandleSubmit, submitLoading, submitError, submitSuccess };
+  return { hookHandleSubmit, submitLoading, submitError, submitSuccess, setSubmitSuccess };
 };

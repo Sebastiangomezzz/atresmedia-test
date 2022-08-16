@@ -37,3 +37,8 @@
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
+.success {
+    color: #512930;
+    font: 2rem sans-serif;
+    margin-bottom: 1rem;
+}

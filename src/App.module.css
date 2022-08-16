@@ -18,6 +18,10 @@ a{
     background-color: transparent;
     font-size: large;
 }
+a:hover {
+    opacity: 0.8;
+    color: grey;
+}
 h1{
     font-size: 4rem;
 }

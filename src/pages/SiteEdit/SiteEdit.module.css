@@ -32,3 +32,8 @@
     margin-bottom: 0.5rem;
     margin-top: 1rem;
 }
+.success{
+    color: #512930;
+    font: 2rem sans-serif;
+    margin-bottom: 1rem;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { useCreateSite } from "../../hooks/useCreateSite";
 import { Button } from "../../components/buttons/Button";
@@ -11,12 +11,16 @@ export const SiteCreate = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { hookHandleSubmit, submitLoading, submitError, submitSuccess } =
+  const { hookHandleSubmit, submitLoading, submitError, submitSuccess, setSubmitSuccess } =
     useCreateSite();
   const onSubmit = (data) => {
     hookHandleSubmit(data);
     reset();
+    setTimeout(() => {
+      setSubmitSuccess(false);
+    } , 1000);
   };
+  
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -65,10 +69,12 @@ export const SiteCreate = () => {
           width={"100%"}
           text="Crear Site"
           onClick={() => {}}
-          type={errors ? "" : "submit"}
+          type="submit"
         />
       </form>
-      {submitSuccess && <div>Success</div>}
+      {submitSuccess && (
+        <span className={styles.success}>Site creado correctamente!!</span>
+      )}
       {submitError && <div>{submitError}</div>}
     </div>
   );

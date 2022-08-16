@@ -37,7 +37,6 @@ export const SiteEdit = () => {
     }
     hookHandleEditSubmit(data, siteId);
   };
-
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -86,6 +85,9 @@ export const SiteEdit = () => {
         linkTo={`/detail/${siteId}`}
         onClick={() => {}}
       />
+      {submitSuccess && (
+        <span className={styles.success}>Editado correctamente!!</span>
+      )}
     </div>
   );
 };

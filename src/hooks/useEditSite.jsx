@@ -24,11 +24,11 @@ export const useEditSite = (data) => {
         }
       );
       const data = await res.json();
-      if (data.success) {
+      if (data) {
         setSubmitSuccess(true);
         setSubmitLoading(false);
       } else {
-        setSubmitError(data.error);
+        setSubmitError(true);
         setSubmitLoading(false);
       }
     } catch (err) {
