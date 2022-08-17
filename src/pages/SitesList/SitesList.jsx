@@ -4,6 +4,7 @@ import { NavBar } from "../../components/NavBar/NavBar";
 import styles from "./SitesList.module.css";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
+
 export const SitesList = () => {
   const { getSites } = useSiteActions();
   const { sites, sitesLoading } = useSiteState();
