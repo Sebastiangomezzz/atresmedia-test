@@ -3,17 +3,20 @@ import { useLocation, Link, useParams } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import atresplayer from "../../assets/images/atresplayer.png";
 import styles from "./DefaultLayout.module.css";
-import { useFetchOneSite } from "../../hooks/useFetchOneSite";
-
+//import { useFetchOneSite } from "../../hooks/useFetchOneSite";
+import { useSiteActions } from "../../contexts/site/siteActions";
+import { useSiteState } from "../../contexts/site/siteContext";
 export const DefaultLayout = ({ children }) => {
   const { siteId } = useParams();
   const [currentlocation, setCurrentlocation] = useState(null);
   const location = useLocation();
-  const { data, loading, error } = useFetchOneSite(siteId);
+  //const { data, loading, error } = useFetchOneSite(siteId);
   useEffect(() => {
     setCurrentlocation(location.pathname);
   }, [location]);
-  
+  const { getSite } = useSiteActions();
+  const { site } = useSiteState();
+  getSite(siteId);
   return (
     <div className={styles.container}>
       <NavBar>
@@ -32,7 +35,7 @@ export const DefaultLayout = ({ children }) => {
         )}
         {currentlocation && currentlocation.includes("/detail") && (
           <>
-            <h1 style={{marginRight:'5rem'}}>Detalles de</h1>
+            <h1 style={{ marginRight: '5rem' }}>Detalles de { site.name}</h1>
             <Link to="/">Volver a inicio</Link>
           </>
         )}
