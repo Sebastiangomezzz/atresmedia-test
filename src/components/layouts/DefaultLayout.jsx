@@ -13,9 +13,7 @@ export const DefaultLayout = ({ children }) => {
   useEffect(() => {
     setCurrentlocation(location.pathname);
   }, [location]);
-  useEffect(() => {
-    console.log(data);
-  }, [siteId]);
+  
   return (
     <div className={styles.container}>
       <NavBar>

@@ -90,3 +90,19 @@ export const deleteSite = async (dispatch, id) => {
         dispatch({ type: SITE_DELETE_ERROR, payload: error.message });
     }
 }
+
+export const useSiteActions = () => {
+    const dispatch = useSiteDispatch();
+    const _getSites = getSites.bind(getSites, dispatch);
+    const _getSite = getSite.bind(getSite, dispatch);
+    const _createSite = createSite.bind(createSite, dispatch);
+    const _updateSite = updateSite.bind(updateSite, dispatch);
+    const _deleteSite = deleteSite.bind(deleteSite, dispatch);
+    return {
+        getSites: _getSites,
+        getSite: _getSite,
+        createSite: _createSite,
+        updateSite: _updateSite,
+        deleteSite: _deleteSite,
+    }
+}
