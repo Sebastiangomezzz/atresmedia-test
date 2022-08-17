@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useFetchOneSite } from "../../hooks/useFetchOneSite";
 import { useDeleteSite } from "../../hooks/useDeleteSite";
 import { Navigate } from "react-router-dom";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/buttons/Button/Button";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
 import styles from "./SiteDetail.module.css";
 export const SiteDetail = () => {

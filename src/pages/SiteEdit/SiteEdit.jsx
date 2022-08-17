@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEditSite } from "../../hooks/useEditSite";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/buttons/Button/Button";
 import styles from "./SiteEdit.module.css";
 export const SiteEdit = () => {
   const { siteId } = useParams();

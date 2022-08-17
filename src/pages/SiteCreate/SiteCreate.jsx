@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { useCreateSite } from "../../hooks/useCreateSite";
-import { Button } from "../../components/buttons/Button";
+import {Button} from '../../components/buttons/Button/Button';
 import styles from "./SiteCreate.module.css";
 
 export const SiteCreate = () => {
