@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
-import { NavBar } from "../../components/NavBar/NavBar";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
 import ClipLoader from "react-spinners/ClipLoader";
