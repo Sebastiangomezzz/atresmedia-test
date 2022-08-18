@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/buttons/Button/Button";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
 import styles from "./SiteCreate.module.css";

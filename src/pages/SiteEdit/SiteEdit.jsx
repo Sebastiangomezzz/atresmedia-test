@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/buttons/Button/Button";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
 import styles from "./SiteEdit.module.css";
