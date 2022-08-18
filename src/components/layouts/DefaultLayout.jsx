@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Link, useParams } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import atresplayer from "../../assets/images/atresplayer.png";
 import styles from "./DefaultLayout.module.css";
@@ -15,7 +15,7 @@ export const DefaultLayout = ({ children }) => {
   return (
     <div className={styles.container}>
       <NavBar>
-        <img src={atresplayer} />
+        <img src={atresplayer} alt='atresmedia-logo'/>
         {currentlocation && currentlocation.includes("/edit") && (
           <>
             <h1>Editar Site</h1>

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { Button } from "../../components/buttons/Button";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
-import ClipLoader from "react-spinners/ClipLoader";
 import styles from "./SiteDetail.module.css";
 
 export const SiteDetail = () => {
@@ -14,10 +13,9 @@ export const SiteDetail = () => {
   const { selected_site, siteDeleteSuccess } = useSiteState();
   useEffect(() => {
     getSite(siteId);
-  } , [siteId]);
+  }, [siteId]);
   return (
     <div className={styles.container}>
-      
       {selected_site && (
         <>
           <div className={styles.dataContainer}>

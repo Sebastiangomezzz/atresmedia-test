@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/buttons/Button";
 import { useSiteActions } from "../../contexts/site/siteActions";

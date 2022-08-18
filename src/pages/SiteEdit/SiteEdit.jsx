@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
 import { Button } from "../../components/buttons/Button";
@@ -9,13 +9,11 @@ import styles from "./SiteEdit.module.css";
 export const SiteEdit = () => {
   const { siteId } = useParams();
   const { getSite, updateSite, resetSuccess } = useSiteActions();
-  const { selected_site, siteUpdateSuccess, siteUpdateLoading } =
+  const { selected_site, siteUpdateSuccess } =
     useSiteState();
   const {
     register,
-    handleSubmit,
-    reset,
-    formState: { errors },
+    handleSubmit
   } = useForm();
   useEffect(() => {
     if (!selected_site) {
