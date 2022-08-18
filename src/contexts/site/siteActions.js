@@ -14,6 +14,7 @@ import {
     SITE_DELETE_REQUEST,
     SITE_DELETE_SUCCESS,
     SITE_DELETE_ERROR,
+    RESET_SUCCESS,
 } from './siteReducer';
 
 import { useSiteDispatch } from './siteContext';
@@ -32,7 +33,7 @@ export const getSites = async (dispatch) => {
 export const getSite = async (dispatch, id) => {
     try {
         dispatch({ type: SITE_REQUEST });
-        const result = await fetch(`https://interview.staging.atresplayer.com/sites/${id}`);
+        const result = await fetch(`https://interview.staging.atresplayer.com/site/${id}`);
         const data = await result.json();
         console.log(data, 'one site')
         dispatch({ type: SITE_SUCCESS, payload: data });
@@ -41,43 +42,49 @@ export const getSite = async (dispatch, id) => {
     }
 }
 export const createSite = async (dispatch, data) => {
+    console.log(data)
     try {
         dispatch({ type: SITE_CREATE_REQUEST });
-        const result = await fetch('https://interview.staging.atresplayer.com/sites', {
+        const result = await fetch('https://interview.staging.atresplayer.com/site', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         });
-        const data = await result.json();
-        console.log(data, 'create site')
-        dispatch({ type: SITE_CREATE_SUCCESS, payload: data });
+        const _data = await result.json();
+        console.log(_data, 'create site')
+        dispatch({ type: SITE_CREATE_SUCCESS, payload: _data });
     } catch (error) {
         dispatch({ type: SITE_CREATE_ERROR, payload: error.message });
     }
 }
 export const updateSite = async (dispatch, id, data) => {
+    console.log(id, data, 'update site')
     try {
         dispatch({ type: SITE_UPDATE_REQUEST });
-        const result = await fetch(`https://interview.staging.atresplayer.com/sites/${id}`, {
-            method: 'PUT',
+        const result = await fetch(
+          `https://interview.staging.atresplayer.com/site/${id}`,
+          {
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+              accept: "application.json",
+              "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
-        });
-        const data = await result.json();
-        console.log(data, 'update site')
-        dispatch({ type: SITE_UPDATE_SUCCESS, payload: data });
+            body: JSON.stringify(data),
+          }
+        );
+        const _data = await result.json();
+        dispatch({ type: SITE_UPDATE_SUCCESS, payload: _data });
     } catch (error) {
         dispatch({ type: SITE_UPDATE_ERROR, payload: error.message });
+        console.log('error', error)
     }
 }
 export const deleteSite = async (dispatch, id) => {
     try {
         dispatch({ type: SITE_DELETE_REQUEST });
-        const result = await fetch(`https://interview.staging.atresplayer.com/sites/${id}`, {
+        const result = await fetch(`https://interview.staging.atresplayer.com/site/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,6 +97,9 @@ export const deleteSite = async (dispatch, id) => {
         dispatch({ type: SITE_DELETE_ERROR, payload: error.message });
     }
 }
+export const resetSuccess = (dispatch) => {
+    dispatch({ type: RESET_SUCCESS });
+}
 
 export const useSiteActions = () => {
     const dispatch = useSiteDispatch();
@@ -98,11 +108,13 @@ export const useSiteActions = () => {
     const _createSite = createSite.bind(createSite, dispatch);
     const _updateSite = updateSite.bind(updateSite, dispatch);
     const _deleteSite = deleteSite.bind(deleteSite, dispatch);
+    const _resetSuccess = resetSuccess.bind(resetSuccess, dispatch);
     return {
         getSites: _getSites,
         getSite: _getSite,
         createSite: _createSite,
         updateSite: _updateSite,
         deleteSite: _deleteSite,
+        resetSuccess: _resetSuccess,
     }
 }

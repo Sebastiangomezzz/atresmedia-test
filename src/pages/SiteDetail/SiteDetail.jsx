@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useFetchOneSite } from "../../hooks/useFetchOneSite";
-import { useDeleteSite } from "../../hooks/useDeleteSite";
 import { Navigate } from "react-router-dom";
 import { Button } from "../../components/buttons/Button";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
+import { useSiteActions } from "../../contexts/site/siteActions";
+import { useSiteState } from "../../contexts/site/siteContext";
+import ClipLoader from "react-spinners/ClipLoader";
 import styles from "./SiteDetail.module.css";
+
 export const SiteDetail = () => {
   const { siteId } = useParams();
-  const { data, loading, error } = useFetchOneSite(siteId);
-  const [navigateToEdit, setNavigateToEdit] = useState(false);
-  const {
-    loading: loadingDelete,
-    error: errorDelete,
-    success: successDelete,
-    handleDelete,
-  } = useDeleteSite(siteId);
+  const { getSite, deleteSite } = useSiteActions();
+  const { selected_site, siteDeleteSuccess } = useSiteState();
+  useEffect(() => {
+    getSite(siteId);
+  } , [siteId]);
   return (
     <div className={styles.container}>
-        <h2 className={styles.title}>{data.name}</h2>
-      <div className={styles.dataContainer}>
-        <p>Descripción: {data.description}</p>
-        <p>Path: {data.path}</p>
-        <p>Path público: {data.publicPath}</p>
-        <p>Key: {data.key}</p>
-      </div>
+      
+      {selected_site && (
+        <>
+          <div className={styles.dataContainer}>
+            <p>Descripción: {selected_site.description}</p>
+            <p>Path: {selected_site.path}</p>
+            <p>Path público: {selected_site.publicPath}</p>
+            <p>Key: {selected_site.key}</p>
+          </div>
+        </>
+      )}
       <div className={styles.buttonContainer}>
         <ButtonWithLink
           width={"20rem"}
@@ -38,11 +41,11 @@ export const SiteDetail = () => {
           color="#512930"
           text="Eliminar Site"
           onClick={() => {
-            handleDelete(siteId);
+            deleteSite(siteId);
           }}
         />
       </div>
-      {successDelete && <Navigate to="/" />}
+      {siteDeleteSuccess && <Navigate to="/" />}
     </div>
   );
 };

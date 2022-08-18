@@ -26,6 +26,8 @@ export const SITE_DELETE_REQUEST = "SITE_DELETE_REQUEST";
 export const SITE_DELETE_SUCCESS = "SITE_DELETE_SUCCESS";
 export const SITE_DELETE_ERROR = "SITE_DELETE_ERROR";
 
+export const RESET_SUCCESS = "RESET_SUCCESS";
+
 export const siteReducer = (state, action) => {
     switch (action.type) {
         case SITES_REQUEST:
@@ -100,6 +102,7 @@ export const siteReducer = (state, action) => {
         case SITE_UPDATE_SUCCESS:
             return {
                 ...state,
+                selected_site: action.payload,
                 siteUpdateLoading: false,
                 siteUpdateError: null,
                 siteUpdateSuccess: true
@@ -132,5 +135,14 @@ export const siteReducer = (state, action) => {
                 siteDeleteError: action.payload,
                 siteDeleteSuccess: false,
             };
+        case RESET_SUCCESS:
+            return {
+                ...state,
+                siteCreateSuccess: false,
+                siteUpdateSuccess: false,
+                siteDeleteSuccess: false,
+            };
+        default:
+            return state;
     }
 }
