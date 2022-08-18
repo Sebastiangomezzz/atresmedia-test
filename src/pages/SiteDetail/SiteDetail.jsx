@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/buttons/Button/Button";
 import { ButtonWithLink } from "../../components/buttons/ButtonWithLink/ButtonWithLink";
 import { useSiteActions } from "../../contexts/site/siteActions";
 import { useSiteState } from "../../contexts/site/siteContext";
