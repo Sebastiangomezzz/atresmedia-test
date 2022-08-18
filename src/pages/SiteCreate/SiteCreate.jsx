@@ -1,7 +1,8 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useCreateSite } from "../../hooks/useCreateSite";
-import {Button} from '../../components/buttons/Button/Button';
+import { Button } from "../../components/buttons/Button";
+import { useSiteActions } from "../../contexts/site/siteActions";
+import { useSiteState } from "../../contexts/site/siteContext";
 import styles from "./SiteCreate.module.css";
 
 export const SiteCreate = () => {
@@ -11,16 +12,16 @@ export const SiteCreate = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { hookHandleSubmit, submitLoading, submitError, submitSuccess, setSubmitSuccess } =
-    useCreateSite();
+  const { createSite, resetSuccess } = useSiteActions();
+  const { siteCreateSuccess, siteCreateError, siteCreateLoading } = useSiteState();
   const onSubmit = (data) => {
-    hookHandleSubmit(data);
-    reset();
+    createSite(data);
     setTimeout(() => {
-      setSubmitSuccess(false);
-    } , 1000);
+      resetSuccess();
+    } , 1500);
+    reset();
   };
-  
+  console.log(siteCreateLoading)
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -72,10 +73,10 @@ export const SiteCreate = () => {
           type="submit"
         />
       </form>
-      {submitSuccess && (
+      {siteCreateSuccess && (
         <span className={styles.success}>Site creado correctamente!!</span>
       )}
-      {submitError && <div>{submitError}</div>}
+      {siteCreateError && <span className={styles.success}>{siteCreateError}</span>}
     </div>
   );
 };

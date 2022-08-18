@@ -6,9 +6,11 @@ import { SiteCreate } from "./pages/SiteCreate/SiteCreate";
 import { SiteEdit } from "./pages/SiteEdit/SiteEdit";
 import styles from "./App.module.css";
 import { DefaultLayout } from "./components/layouts/DefaultLayout";
+import { SiteContextProvider } from "./contexts/site/siteContext";
 
 export const App = () => {
   return (
+    <SiteContextProvider>
     <div style={styles}>
       <Router>
         <DefaultLayout>
@@ -20,7 +22,8 @@ export const App = () => {
           </Routes>
         </DefaultLayout>
       </Router>
-    </div>
+      </div>
+    </SiteContextProvider>
   );
 };
 
